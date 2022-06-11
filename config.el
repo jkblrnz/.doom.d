@@ -78,6 +78,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(setenv "PATH" (concat (getenv "PATH") ":/usr/texbin"))
+
 (map! :leader
   :desc "noh" "s c" #'evil-ex-nohighlight)
 
