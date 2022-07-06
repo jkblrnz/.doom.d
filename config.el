@@ -78,10 +78,30 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setenv "PATH" (concat (getenv "PATH") ":/usr/texbin"))
+;; Forge ghub api key
+(setq auth-sources '("~/.authinfo.gpg"))
+
+;; For packaged versions which must use `require':
+(require 'modus-themes)
+
+;; Add all your customizations prior to loading the themes
+(setq modus-themes-italic-constructs t
+      modus-themes-bold-constructs nil
+      modus-themes-region '(bg-only no-extend))
+
+;; Load the theme files before enabling a theme
+(modus-themes-load-themes)
+
+;; Load the theme of your choice:
+(modus-themes-load-vivendi)
+
+(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
 (map! :leader
   :desc "noh" "s c" #'evil-ex-nohighlight)
+
+(map! :leader
+  :desc "calc" "o c" #'calc)
 
 (after! org-roam
   (map! :leader
