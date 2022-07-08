@@ -101,7 +101,10 @@
   :desc "noh" "s c" #'evil-ex-nohighlight)
 
 (map! :leader
-  :desc "calc" "o c" #'calc)
+      :desc "calc" "y c" #'calc)
+
+(map! :leader
+      :desc "yank to buffer" "y y" #'calc-copy-to-buffer)
 
 (after! org-roam
   (map! :leader
